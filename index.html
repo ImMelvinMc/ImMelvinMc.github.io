@@ -3,29 +3,694 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenida</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Feliz Aniversario Mi Amoshitaa</title>
+    <style>
+        body {
+    background: linear-gradient(to bottom, purple, darkblue);
+    height: 100vh;
+    margin: 0;
+}
+        body {
+            background-color: pink;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 5px red;
+        }
+        .corazones, .chispas, .nieve, .osos {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .corazon, .chispa, .copo, .oso {
+            position: absolute;
+        }
+        .corazon {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            clip-path: polygon(50% 15%, 90% 0, 100% 40%, 50% 100%, 0 40%, 10% 0);
+            animation: flotar 5s linear infinite;
+        }
+        @keyframes flotar {
+            0% { transform: translateY(100vh) scale(1); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+        }
+        .chispa {
+            width: 6px;
+            height: 6px;
+            background-color: gold;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: chispaBrillo 1s linear infinite;
+        }
+        @keyframes chispaBrillo {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .copo {
+            width: 8px;
+            height: 8px;
+            background-color: rgb(34, 19, 168);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: caer 5s linear infinite;
+        }
+        @keyframes caer {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+        }
+        .oso {
+            width: 50px;
+            height: 50px;
+            background-image: url('oso.png');
+            background-size: cover;
+            animation: flotar 6s linear infinite;
+        }
+        .mensaje {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        .boton {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        .frases {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+    <audio id="musica" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const musica = document.getElementById("musica");
+            function reproducirMusica() {
+                musica.play().catch(() => {
+                    document.addEventListener("click", reproducirMusica, { once: true });
+                });
+            }
+            reproducirMusica();
+        });
+    </script>
+        
+</head>
+<body> 
+    <div class="frase" id="frase"></div>
+<button class="boton" onclick="mostrarFrase()">Mostrar Nueva Frase</button>
+
+<script>
+    const frases = [
+        "La vida es un sueño, y los sueños, sueños son ejejee.",
+        "El amor no se mira, se siente jeje.",
+        "La felicidad no es algo hecho. Viene de las personas q te aman.",
+        "La vida es corta, pero el amor es eterno mi niña hemosha.",
+        "Haz lo que te haga feliz mi amooor.",
+        "Shiempre te wo a querer mi amoshita, eres la unica persona q me entiende."
+    ];
+
+    function mostrarFrase() {
+        const fraseRandom = frases[Math.floor(Math.random() * frases.length)];
+        document.getElementById("frase").innerText = fraseRandom;
+    }
+
+    // Mostrar una frase aleatoria cuando se carga la página
+    window.onload = mostrarFrase;
+</script>
+    <style>
+        body {
+            overflow-y: auto; /* Habilita el desplazamiento vertical */
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+    <style>
+        .particula {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 192, 203, 0.7);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: flotar 5s linear infinite;
+        }
+    
+        @keyframes flotar {
+            0% { transform: translateY(0px); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+    
+    <script>
+        function crearParticula() {
+            const particula = document.createElement("div");
+            particula.classList.add("particula");
+            particula.style.left = Math.random() * window.innerWidth + "px";
+            particula.style.top = window.innerHeight + "px";
+            particula.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(particula);
+            setTimeout(() => particula.remove(), 5000);
+        }
+    
+        setInterval(crearParticula, 500);
+    </script>
+    <style>
+        .particula {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: flotar 5s infinite ease-in-out;
+        }
+    
+        @keyframes flotar {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-100px); opacity: 0.5; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+    
+    <script>
+        function crearParticula() {
+            const particula = document.createElement("div");
+            particula.classList.add("particula");
+    
+            // Posición aleatoria en la pantalla
+            particula.style.left = `${Math.random() * window.innerWidth}px`;
+            particula.style.top = `${Math.random() * window.innerHeight}px`;
+    
+            // Tamaño aleatorio
+            const size = Math.random() * 10 + 5;
+            particula.style.width = `${size}px`;
+            particula.style.height = `${size}px`;
+    
+            document.body.appendChild(particula);
+    
+            // Eliminar después de la animación
+            setTimeout(() => particula.remove(), 5000);
+        }
+    
+        // Crear partículas continuamente
+        setInterval(crearParticula, 500);
+    </script>
+    <style>
+        .nieve {
+            position: fixed;
+            top: -10px;
+            background: white;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: caer 5s linear infinite;
+        }
+    
+        @keyframes caer {
+            from { transform: translateY(0); }
+            to { transform: translateY(100vh); }
+        }
+    </style>
+    
+    <script>
+        function crearCopoDeNieve() {
+            const copo = document.createElement("div");
+            copo.classList.add("nieve");
+    
+            copo.style.left = `${Math.random() * window.innerWidth}px`;
+            copo.style.animationDuration = `${Math.random() * 3 + 2}s`;
+    
+            document.body.appendChild(copo);
+    
+            setTimeout(() => copo.remove(), 5000);
+        }
+    
+        setInterval(crearCopoDeNieve, 300);
+    </script>
+    <style>
+    .brillante {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 2px solid white;
+        border-radius: 10px;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .brillante:hover {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+</style>
+
+<p class="brillante">!Mi nangonaa hemoshaa!</p>
+<style>
+    .corazon {
+        display: inline-block;
+        font-size: 30px;
+        animation: latido 1s infinite;
+    }
+
+    @keyframes latido {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+</style>
+<style>
+    body {
+        background: url('fondo.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 200vh;
+    }
+
+    .contenido {
+        text-align: center;
+        padding: 50px;
+        font-size: 24px;
+        color: white;
+        backdrop-filter: blur(5px);
+    }
+</style>
+
+<div class="contenido">
+    <h1>¡Bienvenidaaa señorita!</h1>
+    <p>Desliza hacia abajo jeje.</p>
+</div>
+<style>
+    .texto-escribiendo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff4081;
+        font-family: monospace;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        width: 0;
+        animation: escribir 4s steps(40, end) forwards;
+    }
+
+    @keyframes escribir {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+</style>
+
+<p class="texto-escribiendo">Oaaa mi amoshita hemosha!!😊</p>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .close {
+        cursor: pointer;
+        color: red;
+        font-size: 20px;
+    }
+</style>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h2>Bienvenida mi amoshitaaa pechocha</h2>
+        <button class="close" onclick="cerrarModal()">X</button>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        document.getElementById("modal").style.display = "flex";
+    };
+
+    function cerrarModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+</script>
+
+<p class="corazon">❤️</p>
+    <!-- Contenido extra para generar scroll -->    
+    <div class="carta" id="carta">
+        <span class="cerrar" onclick="document.getElementById('carta').style.display='none'">×</span>
+        <p>Para mi hermosa amoshita 💖</p>
+        <p>Eres la razón de mi felicidad, gracias por cada momento juntos. ¡Te amo mucho! 🥰</p>
+    </div>
+    <h1>Feliz Aniversario, Mi Amoshitaa ❤️</h1>
+    <div class="mensaje">
+        <p>Gracias por estos maravillosos 2 años juntos mi niña hemosha. Eres lo mejor persona q eh conocido jeje ti amo mushooo mushoteee mi amoshitaaa 💖</p>
+    <div class="frases">
+        <p>Ti amooo muuuushoo mushoteee mi tochinita hemosha 💖</p>
+        <p>Te agradezco por todo lo que me has hecho vivir y por lo que falta eh 🥰</p>
+        <p>Porque aún me debes una linda familia con mushos pequeñines como tú, mi amoshitaa 😍</p>
+    <div class="galeria">
+        <video controls width="300">
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <img src="imagen1.jpg" alt="Imagen 1">
+        <img src="imagen2.jpg" alt="Imagen 2">
+        <img src="imagen3.jpg" alt="Imagen 3">
+        <img src="imagen4.jpg" alt="Imagen 4">
+        <img src="imagen5.jpg" alt="Imagen 5">
+        <img src="imagen6.jpg" alt="Imagen 6">
+        <img src="imagen7.jpg" alt="Imagen 7">
+        <img src="imagen8.jpg" alt="Imagen 8">
+    <div class="frases-bonitas">
+        <p>💖 "Eres mi persona favorita en el mundo, mi razón de sonreír cada día." 💖</p>
+        <p>🌹 "Contigo, cada momento es un regalo, cada día una nueva aventura llena de amor." 🌹</p>
+        <p>❤️ "No importa el tiempo ni la distancia, siempre estarás en mi corazón." ❤️</p>
+        <p>🥰 "Eres el sueño más hermoso que la vida me ha regalado." 🥰</p>
+    </div>    
+    <br>
+    <div class="corazones"></div>
+    <div class="chispas"></div>
+    <div class="nieve"></div>
+    <div class="osos"></div>
+    <div class="flor"></div>
+    <script>
+        function crearElemento(clase, container, animacionDuracion) {
+            const elemento = document.createElement("div");
+            elemento.classList.add(clase);
+            elemento.style.left = Math.random() * 100 + "%";
+            if (animacionDuracion) {
+                elemento.style.animationDuration = (Math.random() * 3 + animacionDuracion) + "s";
+            }
+            document.querySelector(container).appendChild(elemento);
+            setTimeout(() => elemento.remove(), 5000);
+        }
+        setInterval(() => crearElemento("corazon", ".corazones", 2), 300);
+        setInterval(() => crearElemento("chispa", ".chispas"), 100);
+        setInterval(() => crearElemento("copo", ".nieve", 5), 300);
+        setInterval(() => crearElemento("oso", ".osos", 6), 500);
+    </script>
+
+<style>
+    .letra {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 5px black;
+        text-align: center;
+        margin-top: 20px;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+</style>
+
+<div id="letraCancion"></div>
+
+<script>
+    const letra = [
+        "Oaa mi niña hemosha jeje como tu tash?",
+        "espero q muuu bien mi señorita, no sabia q hacerte ashiq", 
+        "ije wo a hacer eto avel shi le guta a mi niña... Jeje",
+        "weno mi amor shi tas viendo eto eh poq quero agredecerte mushooo ",
+        "perooo muushootee mi amor, poq desde q te conoci me alegras mushoo los dias",
+        "y encerio q si te llegara a perder 🥺 no she q haria mi amor pero creo q me costaria",
+        "mushooo aceptar q sha no estuvieras conmigo, poq eres la q me alegra muushoo mis dias",
+        "la q me entiende perfectamente en vez de regañarme... jeje la q no me dice q hacer",
+        "cuando algo nu ta bien, la q aclara mis dudas jeje eres y seras",
+        "esa personita especial pa mi mi amor, prometeme q no te wo a perder mi amooor 🥺❤️",
+        "poq eres esha niña tan hemoshaaaa y la q querooo mushoo mushotee, la q quero mirar al lado mio",
+        "todas las mañanas la señorita q me de los wenooosh diaas",
+        "Grashias por estos dosh hemoshos años mi amoshitaaaa🥰🥰❤️",
+    ]; 
+
+    let index = 0;
+
+    function mostrarLetra() {
+        if (index < letra.length) {
+            const linea = document.createElement("p");
+            linea.textContent = letra[index];
+            linea.classList.add("letra");
+            document.getElementById("letraCancion").appendChild(linea);
+
+            setTimeout(() => {
+                linea.style.opacity = 1;
+            }, 100);
+
+            index++;
+            setTimeout(mostrarLetra, 3000); // Muestra cada línea cada 3 segundos
+        }
+    }
+
+    mostrarLetra(); // Inicia la animación
+</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const musica = document.getElementById("musica");
+        
+            // Reproducir música al hacer clic (para navegadores que bloquean autoplay)
+            function reproducirMusica() {
+                musica.play().catch(() => {
+                    document.addEventListener("click", reproducirMusica, { once: true });
+                });
+            }
+            reproducirMusica();
+        
+            // Alternar reproducción / pausa
+            window.toggleMusica = function() {
+                if (musica.paused) {
+                    musica.play();
+                } else {
+                    musica.pause();
+                }
+            };
+        
+            // Cambiar volumen
+            window.cambiarVolumen = function(valor) {
+                musica.volume = valor;
+            };
+        });
+        </script>        
+</body>
+<div class="control-musica">
+    <button id="botonMusica" onclick="toggleMusica()">⏯️</button>
+    <input type="range" id="volumen" min="0" max="1" step="0.1" value="1" onchange="cambiarVolumen(this.value)">
+</div>
+
+<audio id="musica" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const musica = document.getElementById("musica");
+    const botonMusica = document.getElementById("botonMusica");
+    const volumenControl = document.getElementById("volumen");
+
+    // Reproduce la música automáticamente al cargar la página
+    musica.play().catch(() => {
+        // Si no puede reproducirla de inmediato (por restricciones del navegador), espera un clic para reproducirla
+        document.addEventListener("click", function() {
+            musica.play();
+        });
+    });
+
+    // Función para alternar la música y cambiar el ícono del botón
+    window.toggleMusica = function() {
+        if (musica.paused) {
+            musica.play();
+            botonMusica.innerText = "⏸️"; // Cambia a pausa
+        } else {
+            musica.pause();
+            botonMusica.innerText = "🔊"; // Cambia a sonido
+        }
+    };
+
+    // Control de volumen
+    window.cambiarVolumen = function(volumen) {
+        musica.volume = volumen;
+    };
+
+    // Si la música se pausa sola, el botón regresa a 🔊
+    musica.addEventListener("pause", () => botonMusica.innerText = "🔊");
+    musica.addEventListener("play", () => botonMusica.innerText = "⏸️");
+});
+</script>
+<script>
+    // Opción 1: Cambio de fondo según la hora del día
+    document.addEventListener("DOMContentLoaded", function() {
+        function cambiarFondoPorHora() {
+            const hora = new Date().getHours();
+            if (hora >= 6 && hora < 18) {
+                // Día (6 AM - 6 PM): Fondo claro
+                document.body.style.backgroundColor = "lightblue";
+                document.body.style.color = "black"; // Cambiar texto a color oscuro
+            } else {
+                // Noche (6 PM - 6 AM): Fondo oscuro
+                document.body.style.backgroundColor = "darkblue";
+                document.body.style.color = "lightgray"; // Cambiar texto a color gris suave
+            }
+            document.body.style.fontWeight = "bold";  // Hacer que el texto sea en negrita
+        }
+
+        cambiarFondoPorHora(); // Ejecutar cuando cargue la página
+        setInterval(cambiarFondoPorHora, 60000); // Re-ejecutar cada minuto para ajustar al cambio de hora
+    });
+
+    // Opción 2: Cambio de fondo e interacción al hacer clic
+    document.addEventListener("click", function() {
+        // Cambio de fondo al hacer clic
+        const colores = ["lightpink", "lightyellow", "lightgreen", "lightcoral", "lavender"];
+        document.body.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+
+        // Cambio de color de texto también al hacer clic
+        const textos = ["black", "darkblue", "darkred", "darkgreen", "lightgray"]; // Usando lightgray en lugar de white
+        document.body.style.color = textos[Math.floor(Math.random() * textos.length)];
+        
+        // Hacer que el texto sea en negrita al hacer clic
+        document.body.style.fontWeight = "bold";
+    });
+
+    // Opción 3: Cambio de fondo y texto con un botón
+    document.getElementById("cambiarColorBtn").addEventListener("click", function() {
+        // Definir colores aleatorios
+        const coloresFondo = ["#FFB6C1", "#8A2BE2", "#A52A2A", "#7FFF00", "#D2691E"];
+        const coloresTexto = ["#FFFFFF", "#000000", "#FFD700", "#DC143C", "lightgray"]; // Usando lightgray en lugar de white
+        
+        // Cambiar el fondo
+        document.body.style.backgroundColor = coloresFondo[Math.floor(Math.random() * coloresFondo.length)];
+
+        // Cambiar el color del texto
+        document.body.style.color = coloresTexto[Math.floor(Math.random() * coloresTexto.length)];
+
+        // Hacer que el texto sea en negrita
+        document.body.style.fontWeight = "bold";
+    });
+</script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj en Tiempo Real</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    
+        /* Reloj en esquina superior derecha y con texto pequeño */
+        #reloj {
+            font-size: 18px;  /* Tamaño de fuente pequeño */
+            font-weight: bold;
+            color: #333;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 5px 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            position: fixed;  /* Para que esté fijo en la pantalla */
+            top: 10px;        /* Ubicación desde la parte superior */
+            right: 10px;      /* Ubicación desde la parte derecha */
+        }
+    </style>
+    
 </head>
 <body>
-    <header>
-        <h1>Vanessa<br>Vamos al instituto mañana</h1>
-        <h2>¿O me vas a dejar botado?</h2>
-    </header>
-    <main>
-        <p>Hola, Vanessa</p>
-        <p><a href="pagina2.html">Ir a la Segunda Página</a></p>
-        <p><a href="pagina3.html">Ir a la Tercera Página</a></p>
-        <p><a href="pagina4.html">Ir a la Cuarta Página</a></p>
-        <!-- Añadir Imágenes -->
-        <img src="imagen1.jpg" alt="Descripción de la imagen" width="300">
-        <p>Haz clic en la imagen para más información.</p>
-        <!-- Añadir Enlace a la Imagen -->
-        <a href="https://www.ejemplo.com">
-            <img src="imagen2.jpg" alt="Descripción de la imagen enlazada" width="300">
-        </a>
-    </main>
-    <footer>
-        <p>&copy; 2024 Saludos Sorpresivos</p>
-    </footer>
+
+    <div id="reloj">00:00:00</div>
+
+    <script>
+        function actualizarReloj() {
+            const ahora = new Date();
+            const horas = String(ahora.getHours()).padStart(2, '0');
+            const minutos = String(ahora.getMinutes()).padStart(2, '0');
+            const segundos = String(ahora.getSeconds()).padStart(2, '0');
+            document.getElementById('reloj').textContent = `${horas}:${minutos}:${segundos}`;
+        }
+
+        setInterval(actualizarReloj, 1000); // Actualiza el reloj cada segundo
+    </script>
+<!-- Botón de retroceso -->
+<button id="volverArriba" onclick="scrollToTop()">Volver arriba</button>
+
+<style>
+    #volverArriba {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #32cd32;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #volverArriba:hover {
+        background-color: #28a745;
+    }
+</style>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+<!-- Área para mostrar el saludo -->
+<div id="saludo" style="font-size: 24px; text-align: center; margin-top: 20px;"></div>
+
+<script>
+    function mostrarSaludo() {
+        const ahora = new Date();
+        const horas = ahora.getHours();
+        let saludo = "";
+
+        // Definir el saludo según la hora
+        if (horas < 12) {
+            saludo = "¡Wenosh díash mi amoshitaaa, espero y te haya gustado muuusho 😊!";
+        } else if (horas < 18) {
+            saludo = "¡Wenash tardes pechocha, espero y te haya gustado muuusho 😊!";
+        } else {
+            saludo = "¡Wenash noshes mi nangona, espero y te haya gustado muuusho 😊!";
+        }
+
+        // Mostrar el saludo en la página
+        document.getElementById("saludo").textContent = saludo;
+    }
+
+    // Llamar a la función para mostrar el saludo al cargar la página
+    mostrarSaludo();
+</script>
 </body>
 </html>
