@@ -1,0 +1,88 @@
+.galeria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 90%; /* Limita el ancho para evitar desbordamiento */
+    margin: auto;
+}
+
+.galeria img {
+    width: 100%; /* Hace que las imágenes se ajusten al tamaño de la pantalla* 
+    .frases-bonitas {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 18px;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+    .flor {
+    position: fixed;
+    width: 100px; /* Ajusta el tamaño de las flores */
+    height: auto;
+    z-index: 10;
+}
+
+.flor-izquierda-arriba {
+    top: 0;
+    left: 0;
+}
+
+.flor-derecha-arriba {
+    top: 0;
+    right: 0;
+}
+
+.flor-izquierda-abajo {
+    bottom: 0;
+    left: 0;
+}
+
+.flor-derecha-abajo {
+    bottom: 0;
+    right: 0;
+}
+body {
+    background: linear-gradient(to bottom, purple, darkblue);
+    height: 100vh;
+    margin: 0;
+}
+
+@keyframes subir {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+}
+
+.corazon {
+    position: absolute;
+    font-size: 24px;
+    animation: subir 1.5s ease-out;
+}
+.control-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-musica button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.control-musica input {
+    width: 100px;
+}
