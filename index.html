@@ -2,6 +2,91 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wenash wenash</title>
+<style>
+    /* Estilos para el contador de vistas en forma de bola */
+    #contadorVistas {
+        position: fixed; /* Fijo en la pantalla */
+        top: 20px;       /* A 20px desde la parte superior */
+        left: 20px;      /* A 20px desde la parte izquierda */
+        width: 100px;    /* Ancho de la bola */
+        height: 100px;   /* Alto de la bola */
+        background-color: #ff5733; /* Color de la bola */
+        color: white;    /* Texto blanco */
+        border-radius: 50%; /* Forma circular */
+        display: none;   /* Oculto por defecto */
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer; /* Cambiar el cursor al pasar sobre el contador */
+    }
+
+    /* Estilos para el campo de contraseña */
+    #formularioContraseña {
+        position: fixed;
+        top: 20px;
+        left: 140px;
+        display: flex;
+        gap: 5px;
+    }
+
+    /* Estilos para la lista de dispositivos en un cuadro */
+    #listaDispositivos {
+        position: fixed;
+        top: 150px;
+        left: 20px;
+        background-color: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        font-weight: bold;
+        display: none;
+        width: 250px;
+        border: 2px solid black;
+    }
+
+    /* Botón para cerrar el cuadro */
+    #cerrarLista {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+    <h1>Contador de Vistas</h1>
+    
+    <!-- Formulario para ingresar la contraseña -->
+    <div id="formularioContraseña">
+        <input type="password" id="inputContraseña" placeholder="Ingresa la contraseña">
+        <button onclick="verificarContraseña()">Entrar</button>
+    </div>
+    
+    <!-- Contenedor para mostrar el contador de vistas -->
+    <div id="contadorVistas" onclick="mostrarDetalles()"></div> <!-- Aquí se mostrará el contador de vistas y la marca del dispositivo -->
+    
+    <!-- Lista de dispositivos en un cuadro con botón de cerrar -->
+    <div id="listaDispositivos">
+        <button id="cerrarLista" onclick="cerrarLista()">X</button>
+        <div id="contenidoLista"></div>
+    </div>
+    
+    <script src="java.js"></script> <!-- Enlace a tu archivo JS -->
+</body>
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Aniversario Mi Amoshitaa</title>
     <style>
@@ -420,19 +505,31 @@
     </script>
 
 <style>
-    .letra {
+    #letraCancion {
+        font-family: Arial, sans-serif;
         font-size: 20px;
-        font-weight: bold;
-        color: white;
-        text-shadow: 2px 2px 5px black;
         text-align: center;
-        margin-top: 20px;
+        margin-top: 50px;
+    }
+
+    .letra {
         opacity: 0;
         transition: opacity 1s ease-in-out;
+    }
+
+    /* Estilo para el texto final */
+    #mensajeFinal {
+        font-size: 40px;
+        font-weight: bold;
+        color: red;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        margin-top: 20px;
     }
 </style>
 
 <div id="letraCancion"></div>
+<div id="mensajeFinal">Ti amooooo mushoooo mi nangonaa</div>
 
 <script>
     const letra = [
@@ -466,11 +563,16 @@
 
             index++;
             setTimeout(mostrarLetra, 3000); // Muestra cada línea cada 3 segundos
+        } else {
+            setTimeout(() => {
+                document.getElementById("mensajeFinal").style.opacity = 1; // Aparece el mensaje final
+            }, 2000); // Aparece el mensaje final después de 2 segundos
         }
     }
 
-    mostrarLetra(); // Inicia la animación
+    mostrarLetra(); // Inicia la animación de la letra
 </script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -628,19 +730,24 @@ document.addEventListener("DOMContentLoaded", function() {
 </head>
 <body>
 
-    <div id="reloj">00:00:00</div>
+    <div id="reloj"></div>
 
     <script>
         function actualizarReloj() {
-            const ahora = new Date();
-            const horas = String(ahora.getHours()).padStart(2, '0');
-            const minutos = String(ahora.getMinutes()).padStart(2, '0');
-            const segundos = String(ahora.getSeconds()).padStart(2, '0');
-            document.getElementById('reloj').textContent = `${horas}:${minutos}:${segundos}`;
+            const now = new Date();
+            const hora = now.getHours().toString().padStart(2, '0');
+            const minutos = now.getMinutes().toString().padStart(2, '0');
+            const segundos = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('reloj').textContent = `${hora}:${minutos}:${segundos}`;
+    
+            // Cambiar el color del reloj
+            const colors = ['#FF6347', '#32CD32', '#1E90FF', '#FFD700'];
+            document.getElementById('reloj').style.color = colors[Math.floor(Math.random() * colors.length)];
         }
-
-        setInterval(actualizarReloj, 1000); // Actualiza el reloj cada segundo
+    
+        setInterval(actualizarReloj, 1000); // Actualiza cada segundo
     </script>
+    
 <!-- Botón de retroceso -->
 <button id="volverArriba" onclick="scrollToTop()">Volver arriba</button>
 
