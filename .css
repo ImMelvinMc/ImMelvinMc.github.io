@@ -86,3 +86,33 @@ body {
 .control-musica input {
     width: 100px;
 }
+
+#formularioContraseña {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  #inputContraseña {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #formularioContraseña button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: crimson;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  #formularioContraseña button:hover {
+    background-color: darkred;
+  }
+  
