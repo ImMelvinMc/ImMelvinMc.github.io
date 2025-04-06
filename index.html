@@ -11,18 +11,24 @@
           box-sizing: border-box;
         }
     
+        html, body {
+          width: 100%;
+          height: 100%;
+          overflow: hidden; /* Impide hacer scroll para ver contenido oculto */
+        }
+    
         body {
           font-family: sans-serif;
         }
     
-        /* Fondo negro que bloquea TODO */
+        /* Fondo negro que bloquea TODO incluso en móvil */
         #bloqueoPantalla {
           position: fixed;
           top: 0;
           left: 0;
           width: 100vw;
           height: 100vh;
-          background-color: black; /* Fondo 100% negro */
+          background-color: black;
           z-index: 9999;
           display: flex;
           justify-content: center;
@@ -88,7 +94,6 @@
         💖 Oaaa nangonaa 💖
         <p>Muaaa jaja muaaaa jaja 😎 
             digo digo mi pechochaaaa
-        </p>
       </div>
     
       <script>
@@ -97,12 +102,13 @@
           if (contraseña === "nangadas") {
             document.getElementById("bloqueoPantalla").style.display = "none";
             document.getElementById("contenidoPagina").style.display = "block";
+            document.body.style.overflow = "auto"; // Permitir scroll después
           } else {
             alert("❌ Contraseña incorrecta.");
           }
         }
       </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Aniversario Mi Amoshitaa</title>
