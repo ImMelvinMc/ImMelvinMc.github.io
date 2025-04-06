@@ -1,114 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Página protegida</title>
-      <style>
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-    
-        html, body {
-          width: 100%;
-          height: 100%;
-          overflow: hidden; /* Impide hacer scroll para ver contenido oculto */
-        }
-    
-        body {
-          font-family: sans-serif;
-        }
-    
-        /* Fondo negro que bloquea TODO incluso en móvil */
-        #bloqueoPantalla {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background-color: black;
-          z-index: 9999;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-    
-        /* Formulario centrado */
-        #formularioContraseña {
-          background-color: white;
-          padding: 30px;
-          border-radius: 10px;
-          box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          align-items: center;
-        }
-    
-        #inputContraseña {
-          padding: 10px;
-          font-size: 16px;
-          width: 200px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-        }
-    
-        #formularioContraseña button {
-          padding: 10px 20px;
-          font-size: 16px;
-          background-color: crimson;
-          color: white;
-          border: none;
-          cursor: pointer;
-          border-radius: 5px;
-        }
-    
-        #formularioContraseña button:hover {
-          background-color: darkred;
-        }
-    
-        /* Contenido oculto por defecto */
-        #contenidoPagina {
-          display: none;
-          text-align: center;
-          margin-top: 50px;
-          font-size: 24px;
-        }
-      </style>
-    </head>
-    <body>
-    
-      <!-- Bloqueo total -->
-      <div id="bloqueoPantalla">
-        <div id="formularioContraseña">
-          <h2 style="color: crimson;">🔒 Ingresa la contraseña</h2>
-          <input type="password" id="inputContraseña" placeholder="Contraseña" />
-          <button onclick="verificarContraseña()">Entrar</button>
-        </div>
-      </div>
-    
-      <!-- Contenido oculto -->
-      <div id="contenidoPagina">
-        💖 Oaaa nangonaa 💖
-        <p>Muaaa jaja muaaaa jaja 😎 
-            digo digo mi pechochaaaa
-      </div>
-    
-      <script>
-        function verificarContraseña() {
-          const contraseña = document.getElementById("inputContraseña").value;
-          if (contraseña === "nangadas") {
-            document.getElementById("bloqueoPantalla").style.display = "none";
-            document.getElementById("contenidoPagina").style.display = "block";
-            document.body.style.overflow = "auto"; // Permitir scroll después
-          } else {
-            alert("❌ Contraseña incorrecta.");
-          }
-        }
-      </script>
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Aniversario Mi Amoshitaa</title>
@@ -822,18 +714,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Llamar a la función para mostrar el saludo al cargar la página
     mostrarSaludo();
 </script>
-<!-- FORMULARIO DE CONTRASEÑA -->
-<div id="formularioContraseña">
-    <input type="password" id="inputContraseña" placeholder="Ingresa la contraseña">
-    <button onclick="verificarContraseña()">Entrar</button>
-  </div>
-  
-  <!-- CONTENIDO OCULTO HASTA INGRESAR CONTRASEÑA CORRECTA -->
-  <div id="contenidoPagina" style="display: none;">
-    <!-- Aquí va TODO el resto de tu página -->
-    <h1>Bienvenido al sitio 💖</h1>
-    <!-- Puedes mover tu contador de vistas, letra de canción, etc., dentro de aquí -->
-  </div>
-  
 </body>
 </html>
+
